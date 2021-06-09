@@ -13,17 +13,17 @@ documentation below.
 It uses `run-curl-tests.rb` which runs each command defined in
 `commands.yml`.
 
-# REST API
+# chiang.desarrollador
 
 The REST API to the example app is described below.
 
-## Get list of Things
+## Get UsuarioMI
 
 ### Request
 
-`GET /thing/`
+`GET api/UsuarioMI/`
 
-    curl -i -H 'Accept: application/json' http://localhost:7000/thing/
+    http://localhost:14983/api/UsuarioMI
 
 ### Response
 
