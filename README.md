@@ -96,17 +96,17 @@ Detalles:
 ### Response
 
     {
-    "$id": "1",
-    "Distancia": 3,
-    "Pasos": [
-        "userA",
-        "userB",
-        "userC"
-    ],
-    "listObservaciones": [
-        "Informativo: Peticion resuelta en 0 ms."
-    ]
-}
+     "$id": "1",
+     "Distancia": 3,
+     "Pasos": [
+         "userA",
+         "userB",
+         "userC"
+     ],
+     "listObservaciones": [
+         "Informativo: Peticion resuelta en 0 ms."
+     ]
+    }
 
 
 
