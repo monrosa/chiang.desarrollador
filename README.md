@@ -1,21 +1,41 @@
 # chiang.desarrollador
 
-This is a bare-bones example of a Sinatra application providing a REST
-API to a DataMapper-backed model.
+Una plataforma de Red Social, permite las siguientes operaciones a sus usuarios: post, follows, re-post
+La plataforma provee a los desarrolladores de aplicaciones, el siguiente API:
+ 
+GET /<username>/followers
+    
+{ “user”: “username”,  “Followers”: [“user1”, “user2”,….. “user n”] }
 
-The entire application is contained within the `app.rb` file.
+    
+GET /<username>/following
+    
+{ “user”: “username”,  “Following”: [“user1”, “user2”,….. “user n”] }
+    
+ Implemente un algoritmo en cualquier lenguaje de programación, que calcule la distancia entre 2 usuarios.
+Ejemplo:
 
-`config.ru` is a minimal Rack configuration for unicorn.
+Dado:
+    
+{ “user”: “userA”,  “Following”: [“userB”, “userD”,“userE”, "userG"] }
+    
+{ “user”: “userB”,  “Following”: [“userC”, “userJ”,“userI”, "userE"] }
+    
+{ “user”: “userC”,  “Following”: [“userM”, “userN”,“userJ”, "userI", "userE"] }
 
-`run-tests.sh` runs a simplistic test and generates the API
-documentation below.
-
-It uses `run-curl-tests.rb` which runs each command defined in
-`commands.yml`.
+SI requiero a distancia entre "userA" y "userM"
+Al buscar se encuentra que: User A, sigue a User B. Y User B, sigue a User C. Y User C, sigue User M
+Entonces, la distancia entre User A y User M, es: 3
 
 # chiang.desarrollador
 
-The REST API to the example app is described below.
+La solucion se aterrizo con las siguientes caractaresticas:
+
+Detalles:
+    
+* Visual Studio 2015 , Web Api Rest full C#
+    
+* Testeado por PostMan
 
 ## Get UsuarioMI
 
@@ -25,15 +45,56 @@ The REST API to the example app is described below.
 
     http://localhost:14983/api/UsuarioMI
 
+| objDta (BODY)      |
+
+| Nombre      | Tipo Dato     | Descripcion       | 
+| ----------- | ------------- | --------- | 
+| listFollow  | `List<Follow>` |  | 
+| foUser      | FollowUser    |    |
+    
+
+| objDta (BODY) - RAW JSON      |
+    
+    "listFollow": [
+        {
+            "userFollow": "userA",
+            "follows": [
+                "userB",
+                "userD",
+                "userE",
+                "userG"
+            ]
+        },
+        {
+            "userFollow": "userB",
+            "follows": [
+                "userC",
+                "userJ",
+                "userI",
+                "userE"
+            ]
+        },
+        {
+            "userFollow": "userC",
+            "follows": [
+                "userM",
+                "userN",
+                "userJ",
+                "userI",
+                "userE"
+            ]
+        }
+    ],
+    "foUser": {
+        "userInit": "userA",
+        "userFin": "userM"
+    }
+}
+
+
+
 ### Response
 
-    HTTP/1.1 200 OK
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
-    Status: 200 OK
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 2
-
-    []
+    
 
 
