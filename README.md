@@ -122,7 +122,7 @@ Detalles:
      ]
     }
 
-Casos Cubierto dentro de la solución:
+Casos de Validacion Cubierto dentro de la solución:
 * Error: No Existe informacion contra que realizar la busqueda.
 * Error: La busqueda no cumple el parametro de usuarioInicial o usuarioFinal.
 * Informativo: El usuarioInicial no se encuentra en los follows.
